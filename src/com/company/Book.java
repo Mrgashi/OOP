@@ -6,35 +6,18 @@ public class Book {
     private int price;
 
 
-    public void setBookAuthor(String authorName) {
-        this.author = authorName;
+    Book(String titel, String author, int price) {
+        this.titel = titel;
+        this.author = author;
+        this.price = price;
     }
 
-    public String getBookAuthor() {
-        return author;
-    }
-
-    public void setTitel(String titelName) {
-        this.titel = titelName;
-    }
-
-    public String getTitel() {
-        return titel;
-    }
-
-    public void setPrice(int priceOut) {
-        this.price = priceOut;
-    }
-
-    public int getPrice() {
-        return price;
-    }
 
     public void printBookDetails() {
 
-        System.out.println("Pris: " + this.price);
-        System.out.println("Author: " + this.author);
         System.out.println("Titel: " + this.titel);
+        System.out.println("Author: " + this.author);
+        System.out.println("Pris: " + this.price);
         System.out.println("______________________");
 
     }

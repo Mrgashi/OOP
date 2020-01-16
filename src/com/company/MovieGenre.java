@@ -3,7 +3,7 @@ package com.company;
 public enum MovieGenre {
     DRAMA,
     ACTION,
-    DOCUMENTARYS,
+    DOCUMENTARY,
     COMEDY,
 }
 
@@ -12,48 +12,40 @@ class Movie {
     private MovieGenre genre;
     private int price;
     private int year;
+    private String director;
 
 
-    public void setTitel (String titel) {
+    Movie(String titel, MovieGenre genre, int price, int year) {
         this.titel = titel;
-    }
-    public String getTitel () {
-        return titel;
-    }
-
-    public void setGenre(MovieGenre genre) {
         this.genre = genre;
-    }
-
-    public MovieGenre getGenre() {
-        return genre;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
         this.price = price;
+        this.year = year;
     }
 
-    public void setYear(int year){
-        this.year = year;
-        if (this.year == 0) {
-            System.out.println("No release data");
-        }
+    Movie(String titel, MovieGenre genre, int price, int year, String director) {
+        this(titel, genre, price, year);
+        this.director = director;
     }
+
+
     public void printMovieDetails() {
 
-        System.out.println("Pris: " + this.price);
-        System.out.println("Genre: " + this.genre);
         System.out.println("Titel: " + this.titel);
-        if (this.year == 0){
+        System.out.println("Genre: " + this.genre);
+        if (director != null) {
+            System.out.println("Director: " + this.director);
+        }
+        System.out.println("Pris: " + this.price);
+        if (this.year == 0) {
             System.out.println("No release data");
         } else {
             System.out.println("Release year: " + this.year);
         }
         System.out.println("______________________");
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
 }
