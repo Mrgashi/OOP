@@ -1,19 +1,22 @@
 package com.company;
 
-public class Book {
-    private String titel;
+public class Book extends Product {
+    protected String titel;
     private String author;
-    private int price;
 
-
-    Book(String titel, String author, int price) {
+    public Book(int productID, int price, String titel, String author) throws Exception {
+        super(productID, price);
         this.titel = titel;
         this.author = author;
-        this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return this.titel + " \n" + this.author + " \n" + this.price;
+    }
 
-    public void printBookDetails() {
+    @Override
+    public void printDetails() {
 
         System.out.println("Titel: " + this.titel);
         System.out.println("Author: " + this.author);

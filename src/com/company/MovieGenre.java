@@ -5,48 +5,35 @@ public enum MovieGenre {
     ACTION,
     DOCUMENTARY,
     COMEDY,
+    THRILLER,
 }
 
-class Movie {
-    private String titel;
-    private MovieGenre genre;
-    private int price;
-    private int year;
-    private String director;
+class Movie extends Product {
 
+    protected String director;
+    private final String titel;
+    private final MovieGenre genre;
 
-    Movie(String titel, MovieGenre genre, int price, int year) {
+    public Movie(int productID, int price, String titel, MovieGenre genre, String director) throws IncorrectProductIdException {
+        super(productID, price);
         this.titel = titel;
         this.genre = genre;
-        this.price = price;
-        this.year = year;
-    }
 
-    Movie(String titel, MovieGenre genre, int price, int year, String director) {
-        this(titel, genre, price, year);
-        this.director = director;
     }
 
 
-    public void printMovieDetails() {
+    public String toString() {
+        return this.genre + "\n" + this.titel + "\n";
+    }
+
+    @Override
+    public void printDetails() {
 
         System.out.println("Titel: " + this.titel);
         System.out.println("Genre: " + this.genre);
-        if (director != null) {
-            System.out.println("Director: " + this.director);
-        }
         System.out.println("Pris: " + this.price);
-        if (this.year == 0) {
-            System.out.println("No release data");
-        } else {
-            System.out.println("Release year: " + this.year);
-        }
+        System.out.println("ProductId : " + this.productID);
         System.out.println("______________________");
     }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
 }
 
